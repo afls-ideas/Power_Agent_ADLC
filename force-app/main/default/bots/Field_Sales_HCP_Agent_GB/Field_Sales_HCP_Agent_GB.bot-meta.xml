@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentType>AgentforceEmployeeAgent</agentType>
+    <botMlDomain>
+        <label>Field Sales HCP Agent GB</label>
+        <name>Field_Sales_HCP_Agent_GB</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <description>Employee agent that provides account intelligence, visit schedules, and daily briefings for Field Sales Reps</description>
+    <label>Field Sales HCP Agent GB</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>

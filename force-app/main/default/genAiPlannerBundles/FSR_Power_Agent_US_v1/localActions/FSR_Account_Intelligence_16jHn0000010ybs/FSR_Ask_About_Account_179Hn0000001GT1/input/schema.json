@@ -1,0 +1,22 @@
+{
+  "required" : [ "question" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "question" : {
+      "title" : "Question",
+      "description" : "The user's question about this account or HCP, exactly as they asked it",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "accountName" : {
+      "title" : "Account Name",
+      "description" : "The account or HCP name mentioned by the user. Extract from the user message.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

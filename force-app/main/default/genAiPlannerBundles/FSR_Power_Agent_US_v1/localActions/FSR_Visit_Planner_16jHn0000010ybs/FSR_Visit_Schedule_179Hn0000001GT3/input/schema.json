@@ -1,0 +1,14 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "timeframe" : {
+      "title" : "Timeframe",
+      "description" : "today or week. Use 'week' when the user asks about their week, weekly schedule, or this week's visits. Default: today",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

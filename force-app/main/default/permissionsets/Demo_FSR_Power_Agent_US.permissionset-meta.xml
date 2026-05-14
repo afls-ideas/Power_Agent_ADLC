@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentAccesses>
+        <agentName>Field_Sales_HCP_Agent_US</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <agentAccesses>
+        <agentName>FSR_Power_Agent_US</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <classAccesses>
+        <apexClass>FSRAskAboutAccountAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRDailyBriefAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRMyScheduleAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TerritoryPreferenceReader</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Grants access to Apex classes, flows, and the Field Sales Power Agent for US field sales representatives.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Demo FSR Power Agent US</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunFlow</name>
+    </userPermissions>
+</PermissionSet>

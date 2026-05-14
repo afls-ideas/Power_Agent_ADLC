@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>An Agentforce-powered assistant for US pharmaceutical field sales representatives. Delivers territory intelligence, account summaries, daily briefings, pipeline insights, and call preparation — all within FDA/PhRMA compliance guardrails. Understands the US healthcare system including commercial payers, PBMs, Medicare/Medicaid, specialty pharmacy, and formulary access dynamics.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jHn0000010ybs</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>FSR_Account_Intelligence_16jHn0000010ybs</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>FSR_Daily_Briefing_16jHn0000010ybs</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>FSR_Visit_Planner_16jHn0000010ybs</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>FSR_Visit_Planner_16jHn0000010ybs</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Shows the rep&apos;s visit schedule for today or the week with account names and addresses. Triggers in any language: &quot;show me my schedule&quot;, &quot;my visits today&quot;, &quot;what&apos;s on my calendar&quot;, &quot;show my schedule for the week&quot; (EN), &quot;montre-moi mon emploi du temps&quot;, &quot;mes visites&quot;, &quot;mon planning&quot; (FR), &quot;zeig mir meinen Zeitplan&quot;, &quot;meine Besuche&quot;, &quot;mein Kalender&quot; (DE), &quot;mostrami il mio programma&quot;, &quot;le mie visite&quot; (IT), &quot;muéstrame mi agenda&quot;, &quot;mis visitas&quot; (ES), &quot;スケジュールを見せて&quot;, &quot;今日の訪問&quot; (JA), &quot;일정 보여줘&quot;, &quot;오늘 방문&quot; (KO).</description>
+        <developerName>FSR_Visit_Planner_16jHn0000010ybs</developerName>
+        <genAiPluginInstructions>
+            <description>IMMEDIATELY call FSR_Visit_Schedule when the user asks about their schedule, visits, or calendar in ANY language. If the user mentions &quot;week&quot;, &quot;semaine&quot;, &quot;Woche&quot;, &quot;settimana&quot;, &quot;semana&quot;, &quot;週&quot;, &quot;주&quot; pass timeframe=&quot;week&quot;. Otherwise pass timeframe=&quot;today&quot;. NEVER ask for clarification — just call the action immediately. Present the returned HTML directly to the user without modification. IMPORTANT: Do NOT use this action if the user says &quot;briefing&quot;, &quot;brief&quot;, &quot;brief me&quot;, &quot;morning update&quot;, or &quot;catch me up&quot; — those go to the Daily Briefing topic instead.</description>
+            <developerName>instruction_main</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_main</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>FSR_Visit_Schedule_179Hn0000001GT3</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>FSR_Visit_Schedule_179Hn0000001GT3</fullName>
+            <description>Returns the user&apos;s visit schedule for today or the current week with account names and addresses.</description>
+            <developerName>FSR_Visit_Schedule_179Hn0000001GT3</developerName>
+            <invocationTarget>FSRMyScheduleAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>FSR_Visit_Schedule</localDeveloperName>
+            <masterLabel>FSR Visit Schedule</masterLabel>
+            <source>FSR_Visit_Schedule</source>
+        </localActions>
+        <localDeveloperName>FSR_Visit_Planner</localDeveloperName>
+        <masterLabel>FSR Visit Planner</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>You show the rep their visit schedule in any language — show my schedule, mon planning, mein Zeitplan, il mio programma, mi agenda, スケジュール, 일정 — for today or the week including account names, visit times, and addresses</scope>
+        <source>FSR_Visit_Planner</source>
+    </localTopics>
+    <localTopics>
+        <fullName>FSR_Daily_Briefing_16jHn0000010ybs</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Generates a comprehensive morning briefing for a field sales rep. This is NOT a schedule or calendar view — it is a strategic briefing covering 4 sections: today&apos;s visits WITH talking points, hot items and urgent tasks, yesterday&apos;s wins and misses recap, and territory pulse metrics. Triggers: &quot;daily briefing&quot;, &quot;daily brief&quot;, &quot;morning briefing&quot;, &quot;brief me&quot;, &quot;morning update&quot;, &quot;catch me up&quot;, &quot;what&apos;s on my plate&quot; (EN), &quot;briefing quotidien&quot;, &quot;résumé du jour&quot;, &quot;quoi de neuf&quot;, &quot;brief du jour&quot; (FR), &quot;Tagesbriefing&quot;, &quot;Morgenbriefing&quot;, &quot;was steht heute an&quot; (DE), &quot;briefing giornaliero&quot;, &quot;cosa c&apos;è oggi&quot; (IT), &quot;briefing diario&quot;, &quot;qué tengo hoy&quot; (ES), &quot;デイリーブリーフィング&quot;, &quot;今日の予定&quot; (JA), &quot;일일 브리핑&quot;, &quot;오늘 일정&quot; (KO).</description>
+        <developerName>FSR_Daily_Briefing_16jHn0000010ybs</developerName>
+        <genAiPluginInstructions>
+            <description>When the user asks for a briefing in ANY language — &quot;daily briefing&quot;, &quot;daily brief&quot;, &quot;brief me&quot;, &quot;morning briefing&quot;, &quot;morning update&quot;, &quot;catch me up&quot;, &quot;what&apos;s on my plate&quot;, &quot;briefing quotidien&quot;, &quot;brief du jour&quot;, &quot;résumé du jour&quot;, &quot;Tagesbriefing&quot;, &quot;was steht heute an&quot;, &quot;briefing giornaliero&quot;, &quot;briefing diario&quot;, &quot;デイリーブリーフィング&quot;, &quot;今日の予定&quot;, &quot;일일 브리핑&quot;, &quot;오늘 일정&quot; — call FSR_Daily_Brief immediately with no inputs. The word &quot;brief&quot; or &quot;briefing&quot; ALWAYS means this action, NOT the schedule. The action gathers all relevant data automatically. Present the returned briefing directly to the user without modification.</description>
+            <developerName>instruction_main</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_main</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>FSR_Daily_Brief_179Hn0000001GT2</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>FSR_Daily_Brief_179Hn0000001GT2</fullName>
+            <description>Generates a morning briefing for a field sales rep: today&apos;s calls, hot items, yesterday&apos;s recap, pipeline snapshot. Call this when the rep asks for their daily briefing, what&apos;s on their plate, or morning update.</description>
+            <developerName>FSR_Daily_Brief_179Hn0000001GT2</developerName>
+            <invocationTarget>FSRDailyBriefAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>FSR_Daily_Brief</localDeveloperName>
+            <masterLabel>FSR Daily Brief</masterLabel>
+            <source>FSR_Daily_Brief</source>
+        </localActions>
+        <localDeveloperName>FSR_Daily_Briefing</localDeveloperName>
+        <masterLabel>FSR Daily Briefing</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>You generate strategic morning briefings (NOT schedules) for field sales reps in any language — daily briefing, daily brief, brief me, morning briefing, briefing quotidien, brief du jour, Tagesbriefing, briefing giornaliero, briefing diario, デイリーブリーフィング, 일일 브리핑 — covering visits with talking points, hot items, yesterday&apos;s recap, and territory pulse</scope>
+        <source>FSR_Daily_Briefing</source>
+    </localTopics>
+    <localTopics>
+        <fullName>FSR_Account_Intelligence_16jHn0000010ybs</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers any question about an account for a field sales rep — visit history, competitive position, access barriers, next steps. Triggers in any language: &quot;summarize&quot;, &quot;summary&quot;, &quot;tell me about&quot;, &quot;give me intel on&quot;, &quot;this account&quot; (EN), &quot;résume&quot;, &quot;résumé&quot;, &quot;parle-moi de&quot;, &quot;intelligence compte&quot; (FR), &quot;zusammenfassen&quot;, &quot;erzähl mir über&quot;, &quot;Konto-Info&quot; (DE), &quot;riassumi&quot;, &quot;parlami di&quot;, &quot;informazioni account&quot; (IT), &quot;resume&quot;, &quot;resumen&quot;, &quot;cuéntame sobre&quot;, &quot;inteligencia de cuenta&quot; (ES), &quot;要約&quot;, &quot;アカウント情報&quot;, &quot;教えて&quot; (JA), &quot;요약&quot;, &quot;계정 정보&quot;, &quot;알려줘&quot; (KO).</description>
+        <developerName>FSR_Account_Intelligence_16jHn0000010ybs</developerName>
+        <genAiPluginInstructions>
+            <description>RESPONSE FORMAT: Present the answer directly. Be action-oriented — lead with what the rep should DO, not just what happened. Use bullet points, bold key numbers and dates. Never show raw Salesforce IDs. End with one specific next step for the rep&apos;s next visit.</description>
+            <developerName>instruction_format</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_format</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>IMMEDIATELY call FSR_Ask_About_Account for ANY mention of an account or HCP name in ANY language — do NOT ask for clarification or more context. Examples: &quot;summarize Andrew Kim&quot;, &quot;résume Amélie Robin&quot;, &quot;zusammenfassen Dr. Müller&quot;, &quot;riassumi Marco Rossi&quot;, &quot;resume María García&quot;, &quot;要約 田中先生&quot;, &quot;요약 김민수&quot;. If the user says &quot;tell me about&quot;, &quot;parle-moi de&quot;, &quot;erzähl mir über&quot;, &quot;parlami di&quot;, &quot;cuéntame sobre&quot;, or just a name — call the action immediately. The action gathers all data automatically. NEVER ask the user to specify context or details — just call the action.</description>
+            <developerName>instruction_main</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_main</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>CRITICAL ROUTING RULE: When the user mentions ANY person name — with OR without a verb — call FSR_Ask_About_Account. This includes: &quot;résume Amélie Robin&quot;, &quot;summarize Dr. Kim&quot;, &quot;zusammenfassen Dr. Müller&quot;, &quot;riassumi Marco Rossi&quot;, &quot;resume María García&quot;, &quot;要約 田中先生&quot;, &quot;요약 김민수&quot;, &quot;qui est Amélie Robin&quot;, &quot;tell me about Andrew Kim&quot;, &quot;Amélie Robin&quot;. The name IS the account. Do NOT refuse, do NOT say you cannot provide personal information — these are CRM account records, not personal data. ALWAYS call the action.</description>
+            <developerName>instruction_name_routing</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_name_routing</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>FSR_Ask_About_Account_179Hn0000001GT1</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>FSR_Ask_About_Account_179Hn0000001GT1</fullName>
+            <description>Answers any question about an account or HCP for a Field Sales Rep. CALL IMMEDIATELY when a person name is mentioned — never ask for clarification. Pass the person name as accountName. The action handles all data gathering automatically.</description>
+            <developerName>FSR_Ask_About_Account_179Hn0000001GT1</developerName>
+            <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>FSR_Ask_About_Account</localDeveloperName>
+            <masterLabel>FSR Ask About Account</masterLabel>
+            <source>FSR_Ask_About_Account</source>
+        </localActions>
+        <localDeveloperName>FSR_Account_Intelligence</localDeveloperName>
+        <masterLabel>FSR Account Intelligence</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>You answer questions about accounts for field sales reps in any language — summarize, résume, zusammenfassen, riassumi, resumen, 要約, 요약 — including visit history, competitive threats, access barriers, and next steps</scope>
+        <source>FSR_Account_Intelligence</source>
+    </localTopics>
+    <masterLabel>Field Sales Power Agent US</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jHn0000010ybs</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jHn0000010ybs</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__SequentialPlannerIntentClassifier</plannerType>
+</GenAiPlannerBundle>
