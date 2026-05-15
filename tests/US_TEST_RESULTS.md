@@ -247,16 +247,6 @@
 
 ---
 
-## Issues Found
-
-### Issue 1: Grace Liu failed to resolve on first attempt
-
-**Symptom:** "Review my last visit with Grace Liu" returned a generic response without the 📋 Account header, suggesting the account data wasn't fully retrieved.
-
-**Workaround:** Retried with Diane Yamamoto (14 visits) which resolved successfully. Grace Liu has 14 visits so the issue may be session-related or a transient SOSL resolution failure.
-
----
-
 ## US-W-San Francisco Test Accounts
 
 ### HCPs (Person Accounts)
