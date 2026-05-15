@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Employee agent that provides account intelligence, visit schedules, and daily briefings for Field Sales Reps</description>
+    <localTopicLinks>
+        <genAiPluginName>account_summary_16jHn0000010yw0</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jHn0000010yw0</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>ambiguous_question_16jHn0000010yw0</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>daily_briefing_16jHn0000010yw0</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jHn0000010yw0</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>visit_schedule_16jHn0000010yw0</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>off_topic_16jHn0000010yw0</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect off-topic requests back to sales-related questions</description>
+        <developerName>off_topic_16jHn0000010yw0</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the UK regulatory framework governed by the MHRA (Medicines and Healthcare products Regulatory Agency) and the ABPI Code of Practice. You must comply with the ABPI Code — no branded promotion to patients, no hospitality exceeding ABPI limits, and prescribing information must accompany all promotional materials. Respect NHS prescribing guidelines and local CCG/ICB formulary decisions.</description>
+            <developerName>instruction0_179Hn0000001H6l</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179Hn0000001H6l</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>account_summary_16jHn0000010yw0</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Provide AI-powered account and HCP summaries using sales context</description>
+        <developerName>account_summary_16jHn0000010yw0</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the UK regulatory framework governed by the MHRA (Medicines and Healthcare products Regulatory Agency) and the ABPI Code of Practice. You must comply with the ABPI Code — no branded promotion to patients, no hospitality exceeding ABPI limits, and prescribing information must accompany all promotional materials. Respect NHS prescribing guidelines and local CCG/ICB formulary decisions.</description>
+            <developerName>instruction0_179Hn0000001H6k</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179Hn0000001H6k</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>ask_about_account_179Hn0000001H6k</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>ask_about_account_179Hn0000001H6k</fullName>
+            <description>Ask any question about an account or HCP. Gathers sales context and returns an AI-generated summary.</description>
+            <developerName>ask_about_account_179Hn0000001H6k</developerName>
+            <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>ask_about_account</localDeveloperName>
+            <masterLabel>Ask About Account</masterLabel>
+        </localActions>
+        <localDeveloperName>account_summary</localDeveloperName>
+        <masterLabel>Account Summary</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>daily_briefing_16jHn0000010yw0</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
+        <developerName>daily_briefing_16jHn0000010yw0</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the UK regulatory framework governed by the MHRA (Medicines and Healthcare products Regulatory Agency) and the ABPI Code of Practice. You must comply with the ABPI Code — no branded promotion to patients, no hospitality exceeding ABPI limits, and prescribing information must accompany all promotional materials. Respect NHS prescribing guidelines and local CCG/ICB formulary decisions.</description>
+            <developerName>instruction0_179Hn0000001H6j</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179Hn0000001H6j</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>get_briefing_179Hn0000001H6j</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>get_briefing_179Hn0000001H6j</fullName>
+            <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
+            <developerName>get_briefing_179Hn0000001H6j</developerName>
+            <invocationTarget>FSRDailyBriefAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>get_briefing</localDeveloperName>
+            <masterLabel>Get Briefing</masterLabel>
+        </localActions>
+        <localDeveloperName>daily_briefing</localDeveloperName>
+        <masterLabel>Daily Briefing</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>visit_schedule_16jHn0000010yw0</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Show the rep their visit schedule for today or the week</description>
+        <developerName>visit_schedule_16jHn0000010yw0</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the UK regulatory framework governed by the MHRA (Medicines and Healthcare products Regulatory Agency) and the ABPI Code of Practice. You must comply with the ABPI Code — no branded promotion to patients, no hospitality exceeding ABPI limits, and prescribing information must accompany all promotional materials. Respect NHS prescribing guidelines and local CCG/ICB formulary decisions.</description>
+            <developerName>instruction0_179Hn0000001H6i</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179Hn0000001H6i</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>get_schedule_179Hn0000001H6i</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>get_schedule_179Hn0000001H6i</fullName>
+            <description>Returns the rep&apos;s visit schedule for today or the current week with account names and addresses.</description>
+            <developerName>get_schedule_179Hn0000001H6i</developerName>
+            <invocationTarget>FSRMyScheduleAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>get_schedule</localDeveloperName>
+            <masterLabel>Get Schedule</masterLabel>
+        </localActions>
+        <localDeveloperName>visit_schedule</localDeveloperName>
+        <masterLabel>Visit Schedule</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>ambiguous_question_16jHn0000010yw0</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Ask for clarification when the user request is unclear</description>
+        <developerName>ambiguous_question_16jHn0000010yw0</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the UK regulatory framework governed by the MHRA (Medicines and Healthcare products Regulatory Agency) and the ABPI Code of Practice. You must comply with the ABPI Code — no branded promotion to patients, no hospitality exceeding ABPI limits, and prescribing information must accompany all promotional materials. Respect NHS prescribing guidelines and local CCG/ICB formulary decisions.</description>
+            <developerName>instruction0_179Hn0000001H6h</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179Hn0000001H6h</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>ambiguous_question</localDeveloperName>
+        <masterLabel>Ambiguous Question</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>agent_router_16jHn0000010yw0</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Route the user to the appropriate topic</description>
+        <developerName>agent_router_16jHn0000010yw0</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the UK regulatory framework governed by the MHRA (Medicines and Healthcare products Regulatory Agency) and the ABPI Code of Practice. You must comply with the ABPI Code — no branded promotion to patients, no hospitality exceeding ABPI limits, and prescribing information must accompany all promotional materials. Respect NHS prescribing guidelines and local CCG/ICB formulary decisions.</description>
+            <developerName>instruction0_179Hn0000001H6g</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179Hn0000001H6g</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Field Sales HCP Agent GB</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

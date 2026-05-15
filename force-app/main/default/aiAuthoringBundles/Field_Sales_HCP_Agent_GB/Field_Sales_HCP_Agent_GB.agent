@@ -17,7 +17,7 @@ config:
     agent_type: "AgentforceEmployeeAgent"
 
 variables:
-    record_id: mutable string = ""
+    currentRecordId: mutable string = ""
         description: "The record ID from the current page context"
     account_name: mutable string = ""
         description: "The resolved account name from the action"
@@ -74,14 +74,14 @@ topic account_summary:
 
     reasoning:
         instructions: ->
-            | Use the {!@actions.ask_about_account} action to answer any question about an account or HCP.
+            | The current record ID is {!@variables.currentRecordId}
+              Use the {!@actions.ask_about_account} action to answer any question about an account or HCP.
               ALWAYS call the action immediately — do NOT ask the user for more information first.
-              The action will auto-detect the account from context if no name is provided.
-              Always pass the user's question in the question parameter.
-              If the user mentions a specific account or HCP name, pass it as accountName.
-              If the user says "this account", "this HCP", or does not mention a name,
-              still call the action with just the question — leave accountName empty.
-              The action handles account resolution automatically.
+              CRITICAL PARAMETER RULES:
+              - question: Pass the user's EXACT message word-for-word. Do NOT rephrase, remove names, or replace names with pronouns.
+              - accountName: If the user mentions ANY person or organisation name, extract it and pass it here. Examples: "summary of William Hartley" -> accountName="William Hartley". "How is Priya Kapoor" -> accountName="Priya Kapoor". "review King's College Hospital" -> accountName="King's College Hospital".
+              - accountId: If the user says "this account" or does not mention a name, pass the currentRecordId value here.
+              - Do NOT pass "this account", "this HCP", or "this doctor" as accountName — those are not real names.
               This action handles ALL account-related questions including:
               - Account summaries, visit history, competitive position, next steps
               - Product messages, product guidances, and objectives from visits and their reactions
@@ -102,7 +102,7 @@ topic account_summary:
             ask: @actions.ask_about_account
                 description: "Get account or HCP intelligence"
                 with question = ...
-                with accountId = @variables.record_id
+                with accountId = @variables.currentRecordId
                 with accountName = ...
                 set @variables.account_name = @outputs.accountName
 

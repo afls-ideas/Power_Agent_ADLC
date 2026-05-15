@@ -74,14 +74,15 @@ topic account_summary:
 
     reasoning:
         instructions: ->
-            | Use the {!@actions.ask_about_account} action to answer any question about an account or HCP.
+            | The current record ID is {!@variables.record_id}
+              Use the {!@actions.ask_about_account} action to answer any question about an account or HCP.
               ALWAYS call the action immediately — do NOT ask the user for more information first.
-              The action will auto-detect the account from context if no name is provided.
+
               Always pass the user's question in the question parameter.
               If the user mentions a specific account or HCP name, pass it as accountName.
               If the user says "this account", "this HCP", or does not mention a name,
-              still call the action with just the question — leave accountName empty.
-              The action handles account resolution automatically.
+              pass the record_id as accountId — it contains the current page's record ID.
+              Do NOT pass "this account" or "this HCP" as accountName — those are not real names.
               This action handles ALL account-related questions including:
               - Account summaries, visit history, competitive position, next steps
               - Product messages, product guidances, and objectives from visits and their reactions

@@ -1,6 +1,10 @@
 # FSR Agent Test Utterances by Country
 
-Test utterances for each country's AcctSummary and DailyBrief prompt templates. Each section covers the key capabilities the prompt should handle. Use a real account name from the org when testing.
+Test utterances for each country's AcctSummary and DailyBrief prompt templates. Each section covers the key capabilities the prompt should handle.
+
+**Two testing modes:**
+1. **On a record page** — Navigate to an Account record page first. The agent picks up `record_id` from `@record.Id` automatically, so you don't need to say the account name. Use the "On record page" utterances below.
+2. **Not on a record page** — Say the account name explicitly in your utterance. Use the "By name" utterances below.
 
 ---
 
@@ -36,38 +40,88 @@ Test utterances for each country's AcctSummary and DailyBrief prompt templates. 
 
 ---
 
-## GB (gb.rep)
+## GB (gb.rep) — Territory: GB-England-London
 
-**AcctSummary — Full account review**
-- "Give me a summary of Dr. Thompson"
-- "How is Dr. Patel performing for us?"
+HCPs: William Hartley (15 visits), Amara Osei (14), Sophie Cartwright (14), Priya Kapoor (14), Oliver Pemberton (14), James Okafor (14), Charlotte Ainsworth (14), Edward Thornton-Hall (14), Eleanor Blackwood (14), Henry Whitmore (14), Fatima Al-Hassan (13), Richard Ellsworth (13), Mei Liang (13), George Fitzwilliam (13), Aisha Mohammed (13)
 
-**AcctSummary — NHS access & formulary**
-- "What's the formulary status for Dr. Thompson's Trust?"
-- "Is there a shared care protocol in place for Immunexis at Dr. Patel's ICB?"
+Accounts: Barts Health NHS Trust, Bloomsbury Surgery, BUPA, Great Ormond Street Hospital, Guy's and St Thomas' NHS Foundation Trust, Harley Street Clinic, King's College Hospital, NHS England, NHS North East London ICB, NHS South East London ICB, Royal London Hospital, St Thomas' Hospital, The Bermondsey and Lansdowne Medical Mission, University College London Hospital, Whitechapel Health Centre
 
-**AcctSummary — Traffic light & shared care**
-- "What's blocking prescribing for Dr. Thompson?"
-- "Is Dr. Patel's hospital green-lighted for our products?"
+### On record page (navigate to account first, no name needed)
 
-**AcctSummary — Single visit review**
-- "Review my last visit with Dr. Thompson"
-- "How did the visit on 15 May with Dr. Patel go?"
+**Full account review**
+- "Give me a summary of this account"
+- "How is this HCP performing for us?"
+- "Tell me about this doctor"
 
-**AcctSummary — Message effectiveness**
-- "Which messages are landing with Dr. Thompson?"
-- "Should I lead with NICE guidance or efficacy data for Dr. Patel?"
+**NHS access & formulary**
+- "What's the formulary status for this account?"
+- "Is there a shared care protocol in place for Immunexis?"
+- "What's the traffic light status for our products here?"
 
-**AcctSummary — Medical insights**
-- "What does Dr. Thompson think about Immunexis?"
-- "What are Dr. Patel's barriers to prescribing?"
+**Single visit review**
+- "Review my last visit"
+- "How did my most recent visit go?"
+- "Walk me through the last detail"
 
-**AcctSummary — Next visit planning (consultant vs GP)**
-- "Help me prepare for my next visit with Dr. Thompson" (consultant)
-- "What should I focus on with Dr. Patel?" (GP with shared care)
+**Message effectiveness**
+- "Which messages are landing?"
+- "Should I lead with NICE guidance or efficacy data?"
+- "What's working and what's not?"
 
-**AcctSummary — QOF alignment**
-- "Does Immunexis help Dr. Patel hit any QOF targets?"
+**Medical insights**
+- "What does this doctor think about Immunexis?"
+- "What are the barriers to prescribing?"
+- "What insights do we have?"
+
+**Next visit planning**
+- "Help me prepare for my next visit"
+- "What should I focus on next time?"
+- "What's my game plan?"
+
+**QOF alignment**
+- "Does Immunexis help hit any QOF targets?"
+
+**Broad / open-ended**
+- "What should I know before my next visit?"
+- "What's the one thing I should do differently?"
+- "Anything I'm missing?"
+
+### By name (not on a record page)
+
+**Full account review**
+- "Give me a summary of William Hartley"
+- "How is Priya Kapoor performing for us?"
+
+**NHS access & formulary**
+- "What's the formulary status for William Hartley's Trust?"
+- "Is there a shared care protocol in place for Immunexis at Priya Kapoor's ICB?"
+
+**Traffic light & shared care**
+- "What's blocking prescribing for William Hartley?"
+- "Is Amara Osei's hospital green-lighted for our products?"
+
+**Single visit review**
+- "Review my last visit with William Hartley"
+- "How did my last visit with Sophie Cartwright go?"
+
+**Message effectiveness**
+- "Which messages are landing with William Hartley?"
+- "Should I lead with NICE guidance or efficacy data for Priya Kapoor?"
+
+**Medical insights**
+- "What does William Hartley think about Immunexis?"
+- "What are Priya Kapoor's barriers to prescribing?"
+
+**Next visit planning**
+- "Help me prepare for my next visit with William Hartley"
+- "What should I focus on with Sophie Cartwright?"
+
+**QOF alignment**
+- "Does Immunexis help Priya Kapoor hit any QOF targets?"
+
+**Institutional accounts**
+- "Give me a summary of King's College Hospital"
+- "How is Barts Health NHS Trust performing for us?"
 
 **DailyBrief**
 - "What's my day look like?"
