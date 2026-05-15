@@ -76,12 +76,11 @@ topic account_summary:
             | The current record ID is {!@variables.record_id}
               Use the {!@actions.ask_about_account} action to answer any question about an account or HCP.
               ALWAYS call the action immediately — do NOT ask the user for more information first.
-
-              Always pass the user's EXACT question in the question parameter — do NOT rephrase it.
-              If the user mentions a specific account or HCP name, pass it as accountName.
-              If the user says "this account", "this HCP", or does not mention a name,
-              pass the record_id as accountId — it contains the current page's record ID.
-              Do NOT pass "this account" or "this HCP" as accountName — those are not real names.
+              CRITICAL PARAMETER RULES:
+              - question: Pass the user's EXACT message word-for-word. Do NOT rephrase, remove names, or replace names with pronouns.
+              - accountName: If the user mentions ANY person or organisation name, extract it and pass it here. Examples: "summary of Angela Martinez" -> accountName="Angela Martinez". "How is Emily Chen" -> accountName="Emily Chen". "review Stanford Health Care" -> accountName="Stanford Health Care".
+              - accountId: If the user says "this account" or does not mention a name, pass the record_id value here.
+              - Do NOT pass "this account", "this HCP", or "this doctor" as accountName — those are not real names.
               This action handles ALL account-related questions including:
               - Account summaries, visit history, competitive position, next steps
               - Product messages, product guidances, and objectives from visits and their reactions
