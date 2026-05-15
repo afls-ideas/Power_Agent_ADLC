@@ -1,6 +1,8 @@
-# Field Sales HCP Agent US
+# Field Sales HCP Power Agent
 
 An Agentforce employee agent for pharmaceutical field sales reps built on the Atlas Reasoning Engine using Agent Script. The agent provides account intelligence, visit schedules, and daily briefings — accessible from both the Agentforce desktop panel and mobile SDK.
+
+Ten country-specific agent variants deliver localized content with country-appropriate regulatory framing.
 
 ## What It Does
 
@@ -27,30 +29,73 @@ The account summary action gathers and passes the following context to the LLM:
 
 The prompt template (`FSR_AcctSummary_{countryCode}`) instructs the LLM to analyze this data like a top-performing sales rep — focusing on actionable insights, message effectiveness, visit cadence, HCP beliefs from medical insights, and strategy recommendations.
 
-## Multi-Country Support
+## Multi-Country Agents
 
-Prompt templates exist for 8 country variants: US, GB, FR, DE, IT, ES, JP, KR. The country code is resolved at runtime from the user's active territory name via `TerritoryPreferenceReader`.
+| Country | Agent | Language | Regulatory Framework | Territory Example |
+|---------|-------|----------|---------------------|-------------------|
+| US | `Field_Sales_HCP_Agent_US` | English | FDA, PDMA, formulary/payer | US-W-San Francisco |
+| GB | `Field_Sales_HCP_Agent_GB` | English | MHRA, NICE, NHS, ABPI Code | GB-England-London |
+| FR | `Field_Sales_HCP_Agent_FR` | French | ANSM, HAS, CEPS, AMM, Charte visite médicale | FR-Ile-de-France-Paris |
+| DE | `Field_Sales_HCP_Agent_DE` | German | BfArM, G-BA, IQWiG, AMNOG | DE-Bayern-Munich |
+| IT | `Field_Sales_HCP_Agent_IT` | Italian | AIFA, Farmindustria Code, Registro AIFA | IT-Lazio-Rome |
+| ES | `Field_Sales_HCP_Agent_ES` | Spanish | AEMPS, SNS, Farmaindustria Code | ES-Madrid-Madrid |
+| JP | `Field_Sales_HCP_Agent_JP` | Japanese | PMDA, MHLW, NHI, JPMA Code | JP-Kanto-Tokyo |
+| KR | `Field_Sales_HCP_Agent_KR` | Korean | MFDS, HIRA, NHIS, KRPIA Code, Kim Young-ran Act | KR-Seoul-Seoul |
+| BR | `Field_Sales_HCP_Agent_BR` | Portuguese | ANVISA, SUS, Interfarma Code | BR-Sudeste-São Paulo |
+| MX | `Field_Sales_HCP_Agent_MX` | Spanish | COFEPRIS, IMSS, CANIFARMA Code | MX-CDMX-Mexico City |
+
+The country code is resolved at runtime from the user's active territory name via `TerritoryPreferenceReader`. Each agent has country-specific system instructions with the applicable regulatory framework.
 
 The schedule action (`FSRMyScheduleAction`) supports localized labels for en_US, fr, de, it, es, ja, and ko.
+
+## Test Results
+
+| Country | Tests | Status | Key Regulatory Content Verified |
+|---------|-------|--------|-------------------------------|
+| [US](tests/US_TEST_RESULTS.md) | 6/6 | PASSED | NRx/TRx, FDA label, formulary, prior auth, PDMA, samples |
+| [GB](tests/GB_TEST_RESULTS.md) | 6/6 | PASSED | NHS, NICE TA, MHRA, traffic-light, ICB, QOF, shared-care, Blueteq, ABPI |
+| [FR](tests/FR_TEST_RESULTS.md) | 6/6 | PASSED | HAS, ANSM, CEPS, ASMR, AMM, PMSI, GHT, COMEDIMS, livret thérapeutique |
+| [IT](tests/IT_TEST_RESULTS.md) | 6/6 | PASSED | AIFA, Registro AIFA, PTR, PTO, ASL, DD/DPC, SSN, IRCCS, MMG |
+| [KR](tests/KR_TEST_RESULTS.md) | 5/6 | 5 PASSED, 1 BLOCKED | MFDS, NHIS, HIRA, KCR, MDT, RSA, biosimilar, 약사위원회 |
+| BR | — | Not yet tested | |
+| DE | — | Not yet tested | |
+| ES | — | Not yet tested | |
+| JP | — | Not yet tested | |
+| MX | — | Not yet tested | |
+
+Each test suite validates: correct prompt template invocation, native language responses, country-specific regulatory terminology, no cross-country language contamination, account resolution, message effectiveness analysis with dates/reactions, and safety compliance.
 
 ## Project Structure
 
 ```
 force-app/main/default/
 ├── aiAuthoringBundles/
-│   └── Field_Sales_HCP_Agent_US/
-│       ├── Field_Sales_HCP_Agent_US.agent        # Agent Script source
-│       └── Field_Sales_HCP_Agent_US-bundle-meta.xml
+│   ├── Field_Sales_HCP_Agent_US/
+│   ├── Field_Sales_HCP_Agent_GB/
+│   ├── Field_Sales_HCP_Agent_FR/
+│   ├── Field_Sales_HCP_Agent_DE/
+│   ├── Field_Sales_HCP_Agent_IT/
+│   ├── Field_Sales_HCP_Agent_ES/
+│   ├── Field_Sales_HCP_Agent_JP/
+│   ├── Field_Sales_HCP_Agent_KR/
+│   ├── Field_Sales_HCP_Agent_BR/
+│   └── Field_Sales_HCP_Agent_MX/
 ├── classes/
-│   ├── FSRAskAboutAccountAction.cls              # Account intelligence (Apex + LLM)
-│   ├── FSRDailyBriefAction.cls                   # Daily briefing (Apex + LLM)
-│   └── FSRMyScheduleAction.cls                   # Visit schedule (Apex, HTML output)
+│   ├── FSRAskAboutAccountAction.cls       # Account intelligence (Apex + LLM)
+│   ├── FSRDailyBriefAction.cls            # Daily briefing (Apex + LLM)
+│   └── FSRMyScheduleAction.cls            # Visit schedule (Apex, HTML output)
 ├── genAiPromptTemplates/
-│   ├── FSR_AcctSummary_{US,GB,FR,DE,IT,ES,JP,KR} # Account summary prompts
-│   └── FSR_DailyBrief_{US,GB,FR,DE,IT,ES,JP,KR}  # Daily briefing prompts
-└── permissionsets/
-    ├── Demo_FSR_Power_Agent_US.permissionset-meta.xml
-    └── Field_Sales_HCP_Agent_US_Access.permissionset-meta.xml
+│   ├── FSR_AcctSummary_{US,GB,FR,DE,IT,ES,JP,KR,BR,MX}
+│   └── FSR_DailyBrief_{US,GB,FR,DE,IT,ES,JP,KR,BR,MX}
+├── permissionsets/
+│   ├── Demo_FSR_Power_Agent_{CC}.permissionset-meta.xml
+│   └── Field_Sales_HCP_Agent_{CC}_Access.permissionset-meta.xml
+└── tests/
+    ├── US_TEST_RESULTS.md
+    ├── GB_TEST_RESULTS.md
+    ├── FR_TEST_RESULTS.md
+    ├── IT_TEST_RESULTS.md
+    └── KR_TEST_RESULTS.md
 ```
 
 ## Deployment
@@ -62,17 +107,17 @@ sf config set target-org <your-org-alias>
 # Deploy all metadata
 sf project deploy start --source-dir force-app
 
-# Publish and activate the agent
+# Publish and activate an agent (repeat per country)
 sf agent publish authoring-bundle --api-name Field_Sales_HCP_Agent_US
 sf agent activate --api-name Field_Sales_HCP_Agent_US
 ```
 
 ## Permission Setup
 
-Assign one of the included permission sets to users who need agent access:
+Each country has its own permission sets. Assign to users who need agent access:
 
-- **Field_Sales_HCP_Agent_US_Access** — grants access to the agent and all backing Apex classes
-- **Demo_FSR_Power_Agent_US** — includes the above plus RunFlow permission
+- **Field_Sales_HCP_Agent_{CC}_Access** — grants access to the agent and all backing Apex classes
+- **Demo_FSR_Power_Agent_{CC}** — includes the above plus RunFlow permission
 
 Both permission sets grant access to: `FSRAskAboutAccountAction`, `FSRDailyBriefAction`, `FSRMyScheduleAction`, and `TerritoryPreferenceReader`.
 
