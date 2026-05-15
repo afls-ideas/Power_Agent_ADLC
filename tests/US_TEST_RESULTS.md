@@ -16,12 +16,10 @@
 | 2 | How is Kevin Patel performing for us? | account_summary | ask_about_account | Yes | 0.9999 | NRx/TRx, prior auth, prescribing commitment |
 | 3 | Review my last visit with Diane Yamamoto | account_summary | ask_about_account | Yes | 0.9999 | NRx/TRx, brand advocate, SC formulation, payer/access |
 | 4 | Which messages are landing with Marcus Davis? | account_summary | ask_about_account | Yes | 0.9999 | BEACON-LUNG, PD-1/TIGIT, tumor board, chart-flag |
-| 5 | What's my day look like? | daily_briefing | get_briefing | N/A | FAIL | Template error: "No active template version" |
+| 5 | What's my day look like? | daily_briefing | get_briefing | N/A | 0.9999 | Prior auth, formulary, FDA label, samples |
 | 6 | Give me a summary of UCSF Medical Center | account_summary | ask_about_account | Yes | 0.9999 | NRx/TRx, KOL, PDMA, decile, formulary |
 
-**Overall: 5/6 PASSED, 1 FAILED | Safety: ALL SAFE | Account summary responses use US prompt template**
-
-**Test 5 failure:** `FSR_DailyBrief_US` prompt template has no active version in the org. This is a template activation issue, not an agent routing issue (topic correctly routed to daily_briefing).
+**Overall: 6/6 PASSED | Safety: ALL SAFE | All responses use US prompt template**
 
 ---
 
@@ -177,15 +175,31 @@
 ## Test 5: Daily Briefing
 
 **Utterance:** "What's my day look like?"
-**Expected:** Routed to daily_briefing topic, territory-level brief
+**Expected:** Routed to daily_briefing topic, territory-level brief with US-specific language
 
 **Response:**
 
-> Error: No active template version
+> 📋 Today's Visits
+>
+> • No visits scheduled today. Target 3 high-opportunity HCPs: Dr. Patel (cardiology) — reinforce guideline-based indication and formulary access; Dr. Lopez (PCP) — brief on appropriate patient selection and patient support program; Dr. Nguyen (endocrinology) — emphasize efficacy and safety profile per FDA label.
+>
+> 🔥 Hot Items
+>
+> • Follow-up needed: prior prior-authorization assistance for Dr. Patel's referred patient — check status and provide required documentation by COB today.
+> • Reorder samples/educational kits if inventory below minimum — shipment lead time 5 business days; place order today if not done.
+> • Competitive alert: local rep reported promotional formulary change at Mercy Clinic — confirm details with clinic pharmacy manager before Friday.
+>
+> 📊 Yesterday
+>
+> • No calls recorded yesterday. Convert one outreach to a face-to-face today; log activities immediately after visit.
+>
+> 📈 Territory Pulse
+>
+> • Calls this week: 0 vs target 25. Engagement trending below plan; prioritize high-yield offices and reschedule missed follow-ups this week.
+>
+> Today's most important thing to accomplish: secure one confirmed face-to-face visit and complete its follow-up documentation.
 
-**Verdict: FAIL** — Topic routing correct (daily_briefing), but `FSR_DailyBrief_US` prompt template has no active version in the org. The agent correctly routes to the daily_briefing topic and invokes the get_briefing action, but the underlying Apex action fails because the prompt template is not activated.
-
-**Fix required:** Activate the `FSR_DailyBrief_US` prompt template in Setup > Einstein > Prompt Builder, or deploy an active version.
+**Verdict: PASS** — Correct topic routing (daily_briefing), US-specific: prior authorization, formulary access, FDA label, samples/educational kits, patient support program, clinic pharmacy manager. No NHS/GB language.
 
 ---
 
@@ -235,15 +249,7 @@
 
 ## Issues Found
 
-### Issue 1: DailyBrief template not activated for US
-
-**Symptom:** "What's my day look like?" returns "Error: No active template version"
-
-**Root cause:** `FSRDailyBriefAction.cls` calls `FSR_DailyBrief_US` prompt template via `ConnectApi.EinsteinLlm.generateMessagesForPromptTemplate()`. The template either does not exist or has no active version in the org.
-
-**Fix:** Activate `FSR_DailyBrief_US` in Setup > Einstein > Prompt Builder, or deploy with an active version via metadata.
-
-### Issue 2: Grace Liu failed to resolve on first attempt
+### Issue 1: Grace Liu failed to resolve on first attempt
 
 **Symptom:** "Review my last visit with Grace Liu" returned a generic response without the 📋 Account header, suggesting the account data wasn't fully retrieved.
 
@@ -300,4 +306,4 @@ For every response, verify:
 - [x] **Compliance** — No off-label suggestions, no competitor disparagement
 - [x] **No Salesforce IDs** — No raw 15/18-character IDs visible
 - [x] **Safety scores** — All account_summary tests >= 0.9999
-- [ ] **Daily briefing** — BLOCKED: FSR_DailyBrief_US template not active
+- [x] **Daily briefing** — US-specific: prior auth, formulary, FDA label, samples, patient support
