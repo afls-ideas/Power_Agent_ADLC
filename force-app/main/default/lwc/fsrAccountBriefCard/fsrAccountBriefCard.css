@@ -1,0 +1,148 @@
+.brief-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    max-width: 460px;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+
+.brief-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #032d60 0%, #0070d2 100%);
+    color: #fff;
+}
+
+.brief-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.brief-heading {
+    flex: 1;
+    min-width: 0;
+}
+
+.brief-name {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brief-sub {
+    font-size: 12px;
+    opacity: 0.85;
+    margin: 2px 0 0;
+}
+
+.brief-headline {
+    padding: 14px 18px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #16325c;
+    background: #f3f7fb;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.brief-sections {
+    padding: 6px 0;
+}
+
+.brief-section {
+    padding: 10px 18px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.brief-section:last-child {
+    border-bottom: none;
+}
+
+.brief-section-heading {
+    font-size: 13px;
+    font-weight: 700;
+    color: #032d60;
+    margin: 0 0 6px;
+}
+
+.brief-bullets {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.brief-bullet {
+    position: relative;
+    padding-left: 16px;
+    margin: 4px 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #16325c;
+    word-break: break-word;
+}
+
+.brief-bullet::before {
+    content: '•';
+    position: absolute;
+    left: 2px;
+    color: #0070d2;
+    font-weight: 700;
+}
+
+.brief-nextstep {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 18px;
+    background: #edf8f4;
+    border-top: 1px solid #c3ecdd;
+}
+
+.brief-nextstep-icon {
+    margin-top: 2px;
+    --sds-c-icon-color-foreground-default: #2e844a;
+}
+
+.brief-nextstep-label {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #2e844a;
+    font-weight: 700;
+}
+
+.brief-nextstep-value {
+    display: block;
+    font-size: 13px;
+    color: #16325c;
+    font-weight: 600;
+    margin-top: 1px;
+    word-break: break-word;
+}
+
+.brief-empty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    color: #706e6b;
+    font-size: 14px;
+    border: 1px dashed #c9c7c5;
+    border-radius: 12px;
+    background: #fafaf9;
+}

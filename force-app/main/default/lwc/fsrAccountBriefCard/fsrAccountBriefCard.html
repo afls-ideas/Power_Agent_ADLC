@@ -1,0 +1,53 @@
+<template>
+    <template lwc:if={hasBrief}>
+        <article class="brief-card">
+            <header class="brief-header">
+                <div class="brief-avatar">
+                    <lightning-icon icon-name="standard:account" size="small" variant="inverse"></lightning-icon>
+                </div>
+                <div class="brief-heading">
+                    <h2 class="brief-name">{accountName}</h2>
+                    <template lwc:if={subtitle}>
+                        <p class="brief-sub">{subtitle}</p>
+                    </template>
+                </div>
+            </header>
+
+            <template lwc:if={hasHeadline}>
+                <p class="brief-headline">{headline}</p>
+            </template>
+
+            <template lwc:if={hasSections}>
+                <div class="brief-sections">
+                    <template for:each={sections} for:item="section">
+                        <section key={section.key} class="brief-section">
+                            <h3 class="brief-section-heading">{section.heading}</h3>
+                            <ul class="brief-bullets">
+                                <template for:each={section.bullets} for:item="bullet">
+                                    <li key={bullet.key} class="brief-bullet">{bullet.text}</li>
+                                </template>
+                            </ul>
+                        </section>
+                    </template>
+                </div>
+            </template>
+
+            <template lwc:if={hasNextStep}>
+                <div class="brief-nextstep">
+                    <lightning-icon icon-name="utility:target" size="xx-small" class="brief-nextstep-icon"></lightning-icon>
+                    <div>
+                        <span class="brief-nextstep-label">Next step</span>
+                        <span class="brief-nextstep-value">{nextStep}</span>
+                    </div>
+                </div>
+            </template>
+        </article>
+    </template>
+
+    <template lwc:else>
+        <div class="brief-empty">
+            <lightning-icon icon-name="utility:search" size="small"></lightning-icon>
+            <span>No account summary available.</span>
+        </div>
+    </template>
+</template>

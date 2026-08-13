@@ -4,16 +4,56 @@
         <agentName>Field_Sales_HCP_Agent_US</agentName>
         <enabled>true</enabled>
     </agentAccesses>
-    <agentAccesses>
-        <agentName>FSR_Power_Agent_US</agentName>
+    <classAccesses>
+        <apexClass>FSRAccountBrief</apexClass>
         <enabled>true</enabled>
-    </agentAccesses>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountBriefAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountBriefRequest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountBriefResult</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountBriefSection</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>FSRAskAboutAccountAction</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>FSRDailyBriefAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountList</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountListData</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRAccountRow</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRLatestVisitAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRMyAccountsAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FSRMyAccountsRichAction</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

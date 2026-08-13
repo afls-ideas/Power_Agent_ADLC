@@ -1,0 +1,5 @@
+{
+  "title": "FSR Account List",
+  "description": "A rep's accounts with desktop and Life Sciences mobile deep links.",
+  "lightning:type": "@apexClassType/c__FSRAccountListData"
+}

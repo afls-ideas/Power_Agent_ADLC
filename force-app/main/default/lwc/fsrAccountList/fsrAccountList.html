@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-p-around_x-small" style="border:2px solid red;">
+        <p class="slds-text-title_bold">[fsrAccountList mounted]</p>
+        <p>rawType: {debugType}</p>
+        <p>count: {debugCount}</p>
+
+        <template lwc:if={hasAccounts}>
+            <ul class="slds-has-dividers_bottom-space">
+                <template for:each={rows} for:item="row">
+                    <li key={row.accountId} class="slds-item slds-p-vertical_xx-small">
+                        <a
+                            href={row.href}
+                            data-mobile-url={row.mobileUrl}
+                            onclick={handleOpen}
+                            class="slds-text-link"
+                        >
+                            {row.name}
+                        </a>
+                        <template lwc:if={row.subtitle}>
+                            <span class="slds-text-body_small slds-text-color_weak">
+                                &nbsp;— {row.subtitle}
+                            </span>
+                        </template>
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <template lwc:else>
+            <p class="slds-text-body_regular">No accounts found in your territory.</p>
+        </template>
+    </div>
+</template>

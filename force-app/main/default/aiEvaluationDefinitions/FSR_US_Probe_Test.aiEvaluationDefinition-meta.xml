@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AiEvaluationDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Probe whether local actions are recorded by the test framework.</description>
+    <name>FSR_US_Probe_Test</name>
+    <subjectName>Field_Sales_HCP_Agent_US</subjectName>
+    <subjectType>AGENT</subjectType>
+    <testCase>
+        <expectation>
+            <expectedValue>daily_briefing</expectedValue>
+            <name>topic_assertion</name>
+        </expectation>
+        <expectation>
+            <expectedValue>[&apos;get_briefing&apos;]</expectedValue>
+            <name>actions_assertion</name>
+        </expectation>
+        <expectation>
+            <expectedValue>The agent returns a daily briefing.</expectedValue>
+            <name>output_validation</name>
+        </expectation>
+        <inputs>
+            <utterance>daily briefing</utterance>
+        </inputs>
+        <number>1</number>
+    </testCase>
+    <testCase>
+        <expectation>
+            <expectedValue>visit_schedule</expectedValue>
+            <name>topic_assertion</name>
+        </expectation>
+        <expectation>
+            <expectedValue>[&apos;get_schedule&apos;]</expectedValue>
+            <name>actions_assertion</name>
+        </expectation>
+        <expectation>
+            <expectedValue>The agent returns the visit schedule.</expectedValue>
+            <name>output_validation</name>
+        </expectation>
+        <inputs>
+            <utterance>show my schedule today</utterance>
+        </inputs>
+        <number>2</number>
+    </testCase>
+</AiEvaluationDefinition>

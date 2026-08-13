@@ -1,0 +1,10 @@
+name: FSR_US_MyAccounts_Test
+description: Verify the my_accounts topic routes correctly and invokes the rich accounts action.
+subjectType: AGENT
+subjectName: Field_Sales_HCP_Agent_US
+testCases:
+  - utterance: "show my accounts"
+    expectedTopic: my_accounts
+    expectedActions:
+      - get_my_accounts
+    expectedOutcome: "The agent returns the rep's list of accounts."

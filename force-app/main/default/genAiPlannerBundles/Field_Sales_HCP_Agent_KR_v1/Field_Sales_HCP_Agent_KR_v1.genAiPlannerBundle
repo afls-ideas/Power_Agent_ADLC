@@ -2,86 +2,28 @@
 <GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Employee agent that provides account intelligence, visit schedules, and daily briefings for Field Sales Reps</description>
     <localTopicLinks>
-        <genAiPluginName>account_summary_16jHn0000010yhw</genAiPluginName>
+        <genAiPluginName>account_summary_16jgL000002EROz</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>agent_router_16jHn0000010yhw</genAiPluginName>
+        <genAiPluginName>agent_router_16jgL000002EROz</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>ambiguous_question_16jHn0000010yhw</genAiPluginName>
+        <genAiPluginName>ambiguous_question_16jgL000002EROz</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>daily_briefing_16jHn0000010yhw</genAiPluginName>
+        <genAiPluginName>daily_briefing_16jgL000002EROz</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>off_topic_16jHn0000010yhw</genAiPluginName>
+        <genAiPluginName>off_topic_16jgL000002EROz</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>visit_schedule_16jHn0000010yhw</genAiPluginName>
+        <genAiPluginName>visit_schedule_16jgL000002EROz</genAiPluginName>
     </localTopicLinks>
     <localTopics>
-        <fullName>ambiguous_question_16jHn0000010yhw</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Ask for clarification when the user request is unclear</description>
-        <developerName>ambiguous_question_16jHn0000010yhw</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.
-You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
-            <developerName>instruction0_179Hn0000001GgE</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GgE</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localDeveloperName>ambiguous_question</localDeveloperName>
-        <masterLabel>Ambiguous Question</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>daily_briefing_16jHn0000010yhw</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
-        <developerName>daily_briefing_16jHn0000010yhw</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.
-You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
-            <developerName>instruction0_179Hn0000001GgD</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GgD</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localActionLinks>
-            <functionName>get_briefing_179Hn0000001GgD</functionName>
-        </localActionLinks>
-        <localActions>
-            <fullName>get_briefing_179Hn0000001GgD</fullName>
-            <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
-            <developerName>get_briefing_179Hn0000001GgD</developerName>
-            <invocationTarget>FSRDailyBriefAction</invocationTarget>
-            <invocationTargetType>apex</invocationTargetType>
-            <isConfirmationRequired>false</isConfirmationRequired>
-            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
-            <localDeveloperName>get_briefing</localDeveloperName>
-            <masterLabel>Get Briefing</masterLabel>
-        </localActions>
-        <localDeveloperName>daily_briefing</localDeveloperName>
-        <masterLabel>Daily Briefing</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>agent_router_16jHn0000010yhw</fullName>
+        <fullName>agent_router_16jgL000002EROz</fullName>
         <canEscalate>false</canEscalate>
         <description>Route the user to the appropriate topic</description>
-        <developerName>agent_router_16jHn0000010yhw</developerName>
+        <developerName>agent_router_16jgL000002EROz</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -89,9 +31,9 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
-            <developerName>instruction0_179Hn0000001GgC</developerName>
+            <developerName>instruction0_179gL000002ahTX</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GgC</masterLabel>
+            <masterLabel>instruction0_179gL000002ahTX</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
@@ -100,10 +42,10 @@ You must operate within the Korean regulatory framework governed by MFDS (Minist
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>visit_schedule_16jHn0000010yhw</fullName>
+        <fullName>off_topic_16jgL000002EROz</fullName>
         <canEscalate>false</canEscalate>
-        <description>Show the rep their visit schedule for today or the week</description>
-        <developerName>visit_schedule_16jHn0000010yhw</developerName>
+        <description>Redirect off-topic requests back to sales-related questions</description>
+        <developerName>off_topic_16jgL000002EROz</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -111,19 +53,63 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
-            <developerName>instruction0_179Hn0000001GgB</developerName>
+            <developerName>instruction0_179gL000002ahTW</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GgB</masterLabel>
+            <masterLabel>instruction0_179gL000002ahTW</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>ambiguous_question_16jgL000002EROz</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Ask for clarification when the user request is unclear</description>
+        <developerName>ambiguous_question_16jgL000002EROz</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
+            <developerName>instruction0_179gL000002ahTZ</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ahTZ</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>ambiguous_question</localDeveloperName>
+        <masterLabel>Ambiguous Question</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>visit_schedule_16jgL000002EROz</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Show the rep their visit schedule for today or the week</description>
+        <developerName>visit_schedule_16jgL000002EROz</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
+            <developerName>instruction0_179gL000002ahTY</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ahTY</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>get_schedule_179Hn0000001GgB</functionName>
+            <functionName>get_schedule_179gL000002ahTY</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>get_schedule_179Hn0000001GgB</fullName>
+            <fullName>get_schedule_179gL000002ahTY</fullName>
             <description>Returns the rep&apos;s visit schedule for today or the current week with account names and addresses.</description>
-            <developerName>get_schedule_179Hn0000001GgB</developerName>
+            <developerName>get_schedule_179gL000002ahTY</developerName>
             <invocationTarget>FSRMyScheduleAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -136,10 +122,10 @@ You must operate within the Korean regulatory framework governed by MFDS (Minist
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>account_summary_16jHn0000010yhw</fullName>
+        <fullName>account_summary_16jgL000002EROz</fullName>
         <canEscalate>false</canEscalate>
         <description>Provide AI-powered account and HCP summaries using sales context</description>
-        <developerName>account_summary_16jHn0000010yhw</developerName>
+        <developerName>account_summary_16jgL000002EROz</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -147,19 +133,19 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
-            <developerName>instruction0_179Hn0000001GgA</developerName>
+            <developerName>instruction0_179gL000002ahTV</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GgA</masterLabel>
+            <masterLabel>instruction0_179gL000002ahTV</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>ask_about_account_179Hn0000001GgA</functionName>
+            <functionName>ask_about_account_179gL000002ahTV</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>ask_about_account_179Hn0000001GgA</fullName>
+            <fullName>ask_about_account_179gL000002ahTV</fullName>
             <description>Ask any question about an account or HCP. Gathers sales context and returns an AI-generated summary.</description>
-            <developerName>ask_about_account_179Hn0000001GgA</developerName>
+            <developerName>ask_about_account_179gL000002ahTV</developerName>
             <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -172,10 +158,10 @@ You must operate within the Korean regulatory framework governed by MFDS (Minist
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>off_topic_16jHn0000010yhw</fullName>
+        <fullName>daily_briefing_16jgL000002EROz</fullName>
         <canEscalate>false</canEscalate>
-        <description>Redirect off-topic requests back to sales-related questions</description>
-        <developerName>off_topic_16jHn0000010yhw</developerName>
+        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
+        <developerName>daily_briefing_16jgL000002EROz</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -183,14 +169,28 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Korean regulatory framework governed by MFDS (Ministry of Food and Drug Safety) and the KRPIA (Korea Research-based Pharmaceutical Industry Association) Code. You must comply with the Pharmaceutical Affairs Act. Respect the strict dual-pricing system and HIRA (Health Insurance Review and Assessment Service) reimbursement decisions. Zero-tolerance policy on rebates applies under the Kim Young-ran Act (Improper Solicitation and Graft Act). All promotional claims must reference the approved Korean product label.</description>
-            <developerName>instruction0_179Hn0000001Gg9</developerName>
+            <developerName>instruction0_179gL000002ahTa</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gg9</masterLabel>
+            <masterLabel>instruction0_179gL000002ahTa</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
-        <localDeveloperName>off_topic</localDeveloperName>
-        <masterLabel>Off Topic</masterLabel>
+        <localActionLinks>
+            <functionName>get_briefing_179gL000002ahTa</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>get_briefing_179gL000002ahTa</fullName>
+            <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
+            <developerName>get_briefing_179gL000002ahTa</developerName>
+            <invocationTarget>FSRDailyBriefAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>get_briefing</localDeveloperName>
+            <masterLabel>Get Briefing</masterLabel>
+        </localActions>
+        <localDeveloperName>daily_briefing</localDeveloperName>
+        <masterLabel>Daily Briefing</masterLabel>
         <pluginType>Topic</pluginType>
     </localTopics>
     <masterLabel>Field Sales HCP Agent KR</masterLabel>

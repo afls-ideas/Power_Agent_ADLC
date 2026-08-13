@@ -1,0 +1,14 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "result" : {
+      "title" : "My Accounts",
+      "description" : "The rep's accounts, rendered inline by a custom component that shows each account as a tappable link.",
+      "lightning:type" : "c__fsrAccounts",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

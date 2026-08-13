@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>UPWzxUPJWmoSTPU04OSescg6lU84KNtt56QKkikq=_4</activeVersionIdentifier>
     <developerName>FSR_DailyBrief_US</developerName>
     <masterLabel>FSR Daily Brief US</masterLabel>
     <templateVersions>

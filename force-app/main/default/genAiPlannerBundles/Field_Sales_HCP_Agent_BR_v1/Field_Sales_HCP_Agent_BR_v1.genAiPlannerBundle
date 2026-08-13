@@ -2,50 +2,28 @@
 <GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Employee agent that provides account intelligence, visit schedules, and daily briefings for Field Sales Reps</description>
     <localTopicLinks>
-        <genAiPluginName>account_summary_16jHn0000010yhm</genAiPluginName>
+        <genAiPluginName>account_summary_16jgL000002ERQb</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>agent_router_16jHn0000010yhm</genAiPluginName>
+        <genAiPluginName>agent_router_16jgL000002ERQb</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>ambiguous_question_16jHn0000010yhm</genAiPluginName>
+        <genAiPluginName>ambiguous_question_16jgL000002ERQb</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>daily_briefing_16jHn0000010yhm</genAiPluginName>
+        <genAiPluginName>daily_briefing_16jgL000002ERQb</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>off_topic_16jHn0000010yhm</genAiPluginName>
+        <genAiPluginName>off_topic_16jgL000002ERQb</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>visit_schedule_16jHn0000010yhm</genAiPluginName>
+        <genAiPluginName>visit_schedule_16jgL000002ERQb</genAiPluginName>
     </localTopicLinks>
     <localTopics>
-        <fullName>agent_router_16jHn0000010yhm</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Route the user to the appropriate topic</description>
-        <developerName>agent_router_16jHn0000010yhm</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.
-You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
-            <developerName>instruction0_179Hn0000001Gg2</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gg2</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localDeveloperName>agent_router</localDeveloperName>
-        <masterLabel>Agent Router</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>visit_schedule_16jHn0000010yhm</fullName>
+        <fullName>visit_schedule_16jgL000002ERQb</fullName>
         <canEscalate>false</canEscalate>
         <description>Show the rep their visit schedule for today or the week</description>
-        <developerName>visit_schedule_16jHn0000010yhm</developerName>
+        <developerName>visit_schedule_16jgL000002ERQb</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -53,19 +31,19 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
-            <developerName>instruction0_179Hn0000001Gg1</developerName>
+            <developerName>instruction0_179gL000002ahV9</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gg1</masterLabel>
+            <masterLabel>instruction0_179gL000002ahV9</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>get_schedule_179Hn0000001Gg1</functionName>
+            <functionName>get_schedule_179gL000002ahV9</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>get_schedule_179Hn0000001Gg1</fullName>
+            <fullName>get_schedule_179gL000002ahV9</fullName>
             <description>Returns the rep&apos;s visit schedule for today or the current week with account names and addresses.</description>
-            <developerName>get_schedule_179Hn0000001Gg1</developerName>
+            <developerName>get_schedule_179gL000002ahV9</developerName>
             <invocationTarget>FSRMyScheduleAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -78,54 +56,10 @@ You must operate within the Brazilian regulatory framework governed by ANVISA (A
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>off_topic_16jHn0000010yhm</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Redirect off-topic requests back to sales-related questions</description>
-        <developerName>off_topic_16jHn0000010yhm</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.
-You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
-            <developerName>instruction0_179Hn0000001Gg0</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gg0</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localDeveloperName>off_topic</localDeveloperName>
-        <masterLabel>Off Topic</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>ambiguous_question_16jHn0000010yhm</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Ask for clarification when the user request is unclear</description>
-        <developerName>ambiguous_question_16jHn0000010yhm</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.
-You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
-            <developerName>instruction0_179Hn0000001Gfz</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gfz</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localDeveloperName>ambiguous_question</localDeveloperName>
-        <masterLabel>Ambiguous Question</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>account_summary_16jHn0000010yhm</fullName>
+        <fullName>account_summary_16jgL000002ERQb</fullName>
         <canEscalate>false</canEscalate>
         <description>Provide AI-powered account and HCP summaries using sales context</description>
-        <developerName>account_summary_16jHn0000010yhm</developerName>
+        <developerName>account_summary_16jgL000002ERQb</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -133,19 +67,19 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
-            <developerName>instruction0_179Hn0000001Gfy</developerName>
+            <developerName>instruction0_179gL000002ahV8</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gfy</masterLabel>
+            <masterLabel>instruction0_179gL000002ahV8</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>ask_about_account_179Hn0000001Gfy</functionName>
+            <functionName>ask_about_account_179gL000002ahV8</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>ask_about_account_179Hn0000001Gfy</fullName>
+            <fullName>ask_about_account_179gL000002ahV8</fullName>
             <description>Ask any question about an account or HCP. Gathers sales context and returns an AI-generated summary.</description>
-            <developerName>ask_about_account_179Hn0000001Gfy</developerName>
+            <developerName>ask_about_account_179gL000002ahV8</developerName>
             <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -158,10 +92,10 @@ You must operate within the Brazilian regulatory framework governed by ANVISA (A
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>daily_briefing_16jHn0000010yhm</fullName>
+        <fullName>ambiguous_question_16jgL000002ERQb</fullName>
         <canEscalate>false</canEscalate>
-        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
-        <developerName>daily_briefing_16jHn0000010yhm</developerName>
+        <description>Ask for clarification when the user request is unclear</description>
+        <developerName>ambiguous_question_16jgL000002ERQb</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -169,19 +103,63 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
-            <developerName>instruction0_179Hn0000001Gfx</developerName>
+            <developerName>instruction0_179gL000002ahV7</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gfx</masterLabel>
+            <masterLabel>instruction0_179gL000002ahV7</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>ambiguous_question</localDeveloperName>
+        <masterLabel>Ambiguous Question</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>agent_router_16jgL000002ERQb</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Route the user to the appropriate topic</description>
+        <developerName>agent_router_16jgL000002ERQb</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
+            <developerName>instruction0_179gL000002ahVB</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ahVB</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>daily_briefing_16jgL000002ERQb</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
+        <developerName>daily_briefing_16jgL000002ERQb</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
+            <developerName>instruction0_179gL000002ahVA</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ahVA</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>get_briefing_179Hn0000001Gfx</functionName>
+            <functionName>get_briefing_179gL000002ahVA</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>get_briefing_179Hn0000001Gfx</fullName>
+            <fullName>get_briefing_179gL000002ahVA</fullName>
             <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
-            <developerName>get_briefing_179Hn0000001Gfx</developerName>
+            <developerName>get_briefing_179gL000002ahVA</developerName>
             <invocationTarget>FSRDailyBriefAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -191,6 +169,28 @@ You must operate within the Brazilian regulatory framework governed by ANVISA (A
         </localActions>
         <localDeveloperName>daily_briefing</localDeveloperName>
         <masterLabel>Daily Briefing</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jgL000002ERQb</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect off-topic requests back to sales-related questions</description>
+        <developerName>off_topic_16jgL000002ERQb</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the Brazilian regulatory framework governed by ANVISA (Agência Nacional de Vigilância Sanitária) and the Interfarma Code. RDC 96/2008 governs pharmaceutical promotion — all materials must be pre-approved by ANVISA. Strict prohibition on gifts and hospitality to HCPs beyond educational materials. You must respect the SUS (Sistema Único de Saúde) formulary and RENAME (Relação Nacional de Medicamentos Essenciais) list.</description>
+            <developerName>instruction0_179gL000002ahVC</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ahVC</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
         <pluginType>Topic</pluginType>
     </localTopics>
     <masterLabel>Field Sales HCP Agent BR</masterLabel>

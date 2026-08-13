@@ -1,0 +1,5 @@
+{
+  "title" : "FSR Account Brief",
+  "description" : "A structured account/HCP summary card (headline, sections with bullets, and a next step) rendered in the Field Sales HCP Agentforce agent.",
+  "lightning:type" : "@apexClassType/c__FSRAccountBrief"
+}

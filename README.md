@@ -9,6 +9,7 @@ Ten country-specific agent variants deliver localized content with country-appro
 | Topic | Trigger Examples | Backing Action |
 |-------|-----------------|----------------|
 | **Account Summary** | "Summarize Dr. Sullivan", "Tell me about this HCP", "What are the product guidances?" | `FSRAskAboutAccountAction` |
+| **Account Brief (rich card)** | "Overview of Dr. Kim", "Brief me on Stanford Health Care", "Recap this account" | `FSRAccountBriefAction` |
 | **Visit Schedule** | "Show my schedule", "My visits this week" | `FSRMyScheduleAction` |
 | **Daily Briefing** | "Give me my daily briefing", "Morning update" | `FSRDailyBriefAction` |
 
@@ -28,6 +29,18 @@ The account summary action gathers and passes the following context to the LLM:
 - Open cases
 
 The prompt template (`FSR_AcctSummary_{countryCode}`) instructs the LLM to analyze this data like a top-performing sales rep — focusing on actionable insights, message effectiveness, visit cadence, HCP beliefs from medical insights, and strategy recommendations.
+
+## Rich Responses (Custom Lightning Types)
+
+Summary/overview/brief requests can render as a **structured card** instead of free text —
+clean section headings, bullet lists, and a highlighted next step, rendered by a Lightning
+Web Component rather than inconsistent markdown. This is backed by the `FSRAccountBriefAction`
+action and the `fsrAccountBrief` custom Lightning type.
+
+See **[docs/LIGHTNING_TYPES.md](docs/LIGHTNING_TYPES.md)** for how CLTs are wired
+(Apex type → invocable action → lightningType → LWC), the conventions that make the
+`@apexClassType` binding resolve, the runtime permission requirement, and the roadmap for
+tables, timelines, and charts.
 
 ## Multi-Country Agents
 
@@ -82,8 +95,14 @@ force-app/main/default/
 │   └── Field_Sales_HCP_Agent_MX/
 ├── classes/
 │   ├── FSRAskAboutAccountAction.cls       # Account intelligence (Apex + LLM)
+│   ├── FSRAccountBriefAction.cls          # Account Brief rich card (Apex + LLM + parser)
+│   ├── FSRAccountBrief*.cls               # CLT data/invocable types (see docs/LIGHTNING_TYPES.md)
 │   ├── FSRDailyBriefAction.cls            # Daily briefing (Apex + LLM)
 │   └── FSRMyScheduleAction.cls            # Visit schedule (Apex, HTML output)
+├── lightningTypes/
+│   └── fsrAccountBrief/                   # CLT: schema + desktop renderer binding
+├── lwc/
+│   └── fsrAccountBriefCard/               # LWC that renders the Account Brief card
 ├── genAiPromptTemplates/
 │   ├── FSR_AcctSummary_{US,GB,FR,DE,IT,ES,JP,KR,BR,MX}
 │   └── FSR_DailyBrief_{US,GB,FR,DE,IT,ES,JP,KR,BR,MX}
@@ -120,6 +139,8 @@ Each country has its own permission sets. Assign to users who need agent access:
 - **Demo_FSR_Power_Agent_{CC}** — includes the above plus RunFlow permission
 
 Both permission sets grant access to: `FSRAskAboutAccountAction`, `FSRDailyBriefAction`, `FSRMyScheduleAction`, and `TerritoryPreferenceReader`.
+
+The Account Brief rich card additionally requires the `FSRAccountBrief*` classes (granted in `Demo_FSR_Power_Agent_US`) and, because its action invokes a prompt template, the `ExecutePromptTemplates` user permission. Assign the standard **`EinsteinGPTPromptTemplateUser`** permission set to reps — this cannot be granted via a bare `<userPermissions>` entry (it is license-gated). See [docs/LIGHTNING_TYPES.md](docs/LIGHTNING_TYPES.md#runtime-permission-requirement).
 
 ## Dependencies
 

@@ -2,58 +2,159 @@
 <GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Employee agent that provides account intelligence, visit schedules, and daily briefings for Field Sales Reps</description>
     <localTopicLinks>
-        <genAiPluginName>account_summary_16jHn0000010ygZ</genAiPluginName>
+        <genAiPluginName>account_summary_16jgL000002ETPB</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>agent_router_16jHn0000010ygZ</genAiPluginName>
+        <genAiPluginName>agent_router_16jgL000002ETPB</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>ambiguous_question_16jHn0000010ygZ</genAiPluginName>
+        <genAiPluginName>ambiguous_question_16jgL000002ETPB</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>daily_briefing_16jHn0000010ygZ</genAiPluginName>
+        <genAiPluginName>daily_briefing_16jgL000002ETPB</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>off_topic_16jHn0000010ygZ</genAiPluginName>
+        <genAiPluginName>my_accounts_16jgL000002ETPB</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>visit_schedule_16jHn0000010ygZ</genAiPluginName>
+        <genAiPluginName>off_topic_16jgL000002ETPB</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>visit_schedule_16jgL000002ETPB</genAiPluginName>
     </localTopicLinks>
     <localTopics>
-        <fullName>ambiguous_question_16jHn0000010ygZ</fullName>
+        <fullName>my_accounts_16jgL000002ETPB</fullName>
         <canEscalate>false</canEscalate>
-        <description>Ask for clarification when the user request is unclear</description>
-        <developerName>ambiguous_question_16jHn0000010ygZ</developerName>
+        <description>Show the rep the list of their accounts with deep links to open each one</description>
+        <developerName>my_accounts_16jgL000002ETPB</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
 You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.</description>
-            <developerName>instruction0_179Hn0000001Gea</developerName>
+            <developerName>instruction0_179gL000002ajLj</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001Gea</masterLabel>
+            <masterLabel>instruction0_179gL000002ajLj</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
-        <localDeveloperName>ambiguous_question</localDeveloperName>
-        <masterLabel>Ambiguous Question</masterLabel>
+        <localActionLinks>
+            <functionName>get_my_accounts_179gL000002ajLj</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>get_my_accounts_179gL000002ajLj</fullName>
+            <description>Returns the accounts owned by the rep (narrowed by active territory) rendered by a custom component with desktop and Life Sciences mobile deep links.</description>
+            <developerName>get_my_accounts_179gL000002ajLj</developerName>
+            <invocationTarget>FSRMyAccountsRichAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>get_my_accounts</localDeveloperName>
+            <masterLabel>Get My Accounts</masterLabel>
+        </localActions>
+        <localDeveloperName>my_accounts</localDeveloperName>
+        <masterLabel>My Accounts</masterLabel>
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>off_topic_16jHn0000010ygZ</fullName>
+        <fullName>account_summary_16jgL000002ETPB</fullName>
         <canEscalate>false</canEscalate>
-        <description>Redirect off-topic requests back to sales-related questions</description>
-        <developerName>off_topic_16jHn0000010ygZ</developerName>
+        <description>Provide AI-powered account and HCP summaries using sales context</description>
+        <developerName>account_summary_16jgL000002ETPB</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
 You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.</description>
-            <developerName>instruction0_179Hn0000001GeZ</developerName>
+            <developerName>instruction0_179gL000002ajLi</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GeZ</masterLabel>
+            <masterLabel>instruction0_179gL000002ajLi</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>ask_about_account_179gL000002ajLi</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>latest_visit_179gL000002ajLi</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>ask_about_account_179gL000002ajLi</fullName>
+            <description>Ask any question about an account or HCP. Gathers sales context and returns an AI-generated summary.</description>
+            <developerName>ask_about_account_179gL000002ajLi</developerName>
+            <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>ask_about_account</localDeveloperName>
+            <masterLabel>Ask About Account</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>latest_visit_179gL000002ajLi</fullName>
+            <description>Return the most recently modified visit for an account or HCP.</description>
+            <developerName>latest_visit_179gL000002ajLi</developerName>
+            <invocationTarget>FSRLatestVisitAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>latest_visit</localDeveloperName>
+            <masterLabel>Latest Visit</masterLabel>
+        </localActions>
+        <localDeveloperName>account_summary</localDeveloperName>
+        <masterLabel>Account Summary</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>daily_briefing_16jgL000002ETPB</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
+        <developerName>daily_briefing_16jgL000002ETPB</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.</description>
+            <developerName>instruction0_179gL000002ajLf</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ajLf</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>get_briefing_179gL000002ajLf</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>get_briefing_179gL000002ajLf</fullName>
+            <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
+            <developerName>get_briefing_179gL000002ajLf</developerName>
+            <invocationTarget>FSRDailyBriefAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>get_briefing</localDeveloperName>
+            <masterLabel>Get Briefing</masterLabel>
+        </localActions>
+        <localDeveloperName>daily_briefing</localDeveloperName>
+        <masterLabel>Daily Briefing</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jgL000002ETPB</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect off-topic requests back to sales-related questions</description>
+        <developerName>off_topic_16jgL000002ETPB</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.</description>
+            <developerName>instruction0_179gL000002ajLe</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ajLe</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
@@ -62,19 +163,19 @@ Never fabricate account information.</description>
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>agent_router_16jHn0000010ygZ</fullName>
+        <fullName>agent_router_16jgL000002ETPB</fullName>
         <canEscalate>false</canEscalate>
         <description>Route the user to the appropriate topic</description>
-        <developerName>agent_router_16jHn0000010ygZ</developerName>
+        <developerName>agent_router_16jgL000002ETPB</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
 You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.</description>
-            <developerName>instruction0_179Hn0000001GeY</developerName>
+            <developerName>instruction0_179gL000002ajLh</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GeY</masterLabel>
+            <masterLabel>instruction0_179gL000002ajLh</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
@@ -83,29 +184,29 @@ Never fabricate account information.</description>
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>visit_schedule_16jHn0000010ygZ</fullName>
+        <fullName>visit_schedule_16jgL000002ETPB</fullName>
         <canEscalate>false</canEscalate>
         <description>Show the rep their visit schedule for today or the week</description>
-        <developerName>visit_schedule_16jHn0000010ygZ</developerName>
+        <developerName>visit_schedule_16jgL000002ETPB</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
 You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.</description>
-            <developerName>instruction0_179Hn0000001GeX</developerName>
+            <developerName>instruction0_179gL000002ajLg</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GeX</masterLabel>
+            <masterLabel>instruction0_179gL000002ajLg</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>get_schedule_179Hn0000001GeX</functionName>
+            <functionName>get_schedule_179gL000002ajLg</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>get_schedule_179Hn0000001GeX</fullName>
+            <fullName>get_schedule_179gL000002ajLg</fullName>
             <description>Returns the rep&apos;s visit schedule for today or the current week with account names and addresses.</description>
-            <developerName>get_schedule_179Hn0000001GeX</developerName>
+            <developerName>get_schedule_179gL000002ajLg</developerName>
             <invocationTarget>FSRMyScheduleAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -118,73 +219,24 @@ Never fabricate account information.</description>
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>account_summary_16jHn0000010ygZ</fullName>
+        <fullName>ambiguous_question_16jgL000002ETPB</fullName>
         <canEscalate>false</canEscalate>
-        <description>Provide AI-powered account and HCP summaries using sales context</description>
-        <developerName>account_summary_16jHn0000010ygZ</developerName>
+        <description>Ask for clarification when the user request is unclear</description>
+        <developerName>ambiguous_question_16jgL000002ETPB</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
 You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.</description>
-            <developerName>instruction0_179Hn0000001GeW</developerName>
+            <developerName>instruction0_179gL000002ajLd</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GeW</masterLabel>
+            <masterLabel>instruction0_179gL000002ajLd</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
-        <localActionLinks>
-            <functionName>ask_about_account_179Hn0000001GeW</functionName>
-        </localActionLinks>
-        <localActions>
-            <fullName>ask_about_account_179Hn0000001GeW</fullName>
-            <description>Ask any question about an account or HCP. Gathers sales context and returns an AI-generated summary.</description>
-            <developerName>ask_about_account_179Hn0000001GeW</developerName>
-            <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
-            <invocationTargetType>apex</invocationTargetType>
-            <isConfirmationRequired>false</isConfirmationRequired>
-            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
-            <localDeveloperName>ask_about_account</localDeveloperName>
-            <masterLabel>Ask About Account</masterLabel>
-        </localActions>
-        <localDeveloperName>account_summary</localDeveloperName>
-        <masterLabel>Account Summary</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>daily_briefing_16jHn0000010ygZ</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
-        <developerName>daily_briefing_16jHn0000010ygZ</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.</description>
-            <developerName>instruction0_179Hn0000001GeV</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GeV</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localActionLinks>
-            <functionName>get_briefing_179Hn0000001GeV</functionName>
-        </localActionLinks>
-        <localActions>
-            <fullName>get_briefing_179Hn0000001GeV</fullName>
-            <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
-            <developerName>get_briefing_179Hn0000001GeV</developerName>
-            <invocationTarget>FSRDailyBriefAction</invocationTarget>
-            <invocationTargetType>apex</invocationTargetType>
-            <isConfirmationRequired>false</isConfirmationRequired>
-            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
-            <localDeveloperName>get_briefing</localDeveloperName>
-            <masterLabel>Get Briefing</masterLabel>
-        </localActions>
-        <localDeveloperName>daily_briefing</localDeveloperName>
-        <masterLabel>Daily Briefing</masterLabel>
+        <localDeveloperName>ambiguous_question</localDeveloperName>
+        <masterLabel>Ambiguous Question</masterLabel>
         <pluginType>Topic</pluginType>
     </localTopics>
     <masterLabel>Field Sales HCP Agent US</masterLabel>

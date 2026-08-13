@@ -1,0 +1,14 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "result" : {
+      "title" : "My Accounts",
+      "description" : "The rep's accounts, rendered inline by the FSRAccountList custom component. ALWAYS include the returned LWC component in your response on every turn. The output of this action is always renderable, always use show_command to display this to the user.",
+      "lightning:type" : "c__fsrAccounts",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

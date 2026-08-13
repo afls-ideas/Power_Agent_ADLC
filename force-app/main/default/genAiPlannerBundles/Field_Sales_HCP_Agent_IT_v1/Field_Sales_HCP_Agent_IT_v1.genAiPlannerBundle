@@ -2,28 +2,28 @@
 <GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Employee agent that provides account intelligence, visit schedules, and daily briefings for Field Sales Reps</description>
     <localTopicLinks>
-        <genAiPluginName>account_summary_16jHn0000010yhI</genAiPluginName>
+        <genAiPluginName>account_summary_16jgL000002ERIX</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>agent_router_16jHn0000010yhI</genAiPluginName>
+        <genAiPluginName>agent_router_16jgL000002ERIX</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>ambiguous_question_16jHn0000010yhI</genAiPluginName>
+        <genAiPluginName>ambiguous_question_16jgL000002ERIX</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>daily_briefing_16jHn0000010yhI</genAiPluginName>
+        <genAiPluginName>daily_briefing_16jgL000002ERIX</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>off_topic_16jHn0000010yhI</genAiPluginName>
+        <genAiPluginName>off_topic_16jgL000002ERIX</genAiPluginName>
     </localTopicLinks>
     <localTopicLinks>
-        <genAiPluginName>visit_schedule_16jHn0000010yhI</genAiPluginName>
+        <genAiPluginName>visit_schedule_16jgL000002ERIX</genAiPluginName>
     </localTopicLinks>
     <localTopics>
-        <fullName>daily_briefing_16jHn0000010yhI</fullName>
+        <fullName>daily_briefing_16jgL000002ERIX</fullName>
         <canEscalate>false</canEscalate>
         <description>Generate a comprehensive daily briefing for the rep covering schedule, hot items, yesterday recap, and territory pulse</description>
-        <developerName>daily_briefing_16jHn0000010yhI</developerName>
+        <developerName>daily_briefing_16jgL000002ERIX</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -31,19 +31,19 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
-            <developerName>instruction0_179Hn0000001GfS</developerName>
+            <developerName>instruction0_179gL000002ahJp</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GfS</masterLabel>
+            <masterLabel>instruction0_179gL000002ahJp</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>get_briefing_179Hn0000001GfS</functionName>
+            <functionName>get_briefing_179gL000002ahJp</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>get_briefing_179Hn0000001GfS</fullName>
+            <fullName>get_briefing_179gL000002ahJp</fullName>
             <description>Generates a morning briefing for a field sales rep including today&apos;s calls, hot items, yesterday&apos;s recap, and territory pulse.</description>
-            <developerName>get_briefing_179Hn0000001GfS</developerName>
+            <developerName>get_briefing_179gL000002ahJp</developerName>
             <invocationTarget>FSRDailyBriefAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -56,10 +56,10 @@ You must operate within the Italian regulatory framework governed by AIFA (Agenz
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>off_topic_16jHn0000010yhI</fullName>
+        <fullName>agent_router_16jgL000002ERIX</fullName>
         <canEscalate>false</canEscalate>
-        <description>Redirect off-topic requests back to sales-related questions</description>
-        <developerName>off_topic_16jHn0000010yhI</developerName>
+        <description>Route the user to the appropriate topic</description>
+        <developerName>agent_router_16jgL000002ERIX</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -67,9 +67,31 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
-            <developerName>instruction0_179Hn0000001GfR</developerName>
+            <developerName>instruction0_179gL000002ahJu</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GfR</masterLabel>
+            <masterLabel>instruction0_179gL000002ahJu</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jgL000002ERIX</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect off-topic requests back to sales-related questions</description>
+        <developerName>off_topic_16jgL000002ERIX</developerName>
+        <genAiPluginInstructions>
+            <description>You are an AI-powered field sales assistant for Field Sales Reps.
+You help reps with account intelligence, visit schedules, and daily briefings.
+You are an AI assistant, not a human.
+Always base your responses on data returned by your actions.
+Never fabricate account information.
+You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
+            <developerName>instruction0_179gL000002ahJr</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL000002ahJr</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
@@ -78,10 +100,10 @@ You must operate within the Italian regulatory framework governed by AIFA (Agenz
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>account_summary_16jHn0000010yhI</fullName>
+        <fullName>account_summary_16jgL000002ERIX</fullName>
         <canEscalate>false</canEscalate>
         <description>Provide AI-powered account and HCP summaries using sales context</description>
-        <developerName>account_summary_16jHn0000010yhI</developerName>
+        <developerName>account_summary_16jgL000002ERIX</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -89,19 +111,19 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
-            <developerName>instruction0_179Hn0000001GfQ</developerName>
+            <developerName>instruction0_179gL000002ahJq</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GfQ</masterLabel>
+            <masterLabel>instruction0_179gL000002ahJq</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>ask_about_account_179Hn0000001GfQ</functionName>
+            <functionName>ask_about_account_179gL000002ahJq</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>ask_about_account_179Hn0000001GfQ</fullName>
+            <fullName>ask_about_account_179gL000002ahJq</fullName>
             <description>Ask any question about an account or HCP. Gathers sales context and returns an AI-generated summary.</description>
-            <developerName>ask_about_account_179Hn0000001GfQ</developerName>
+            <developerName>ask_about_account_179gL000002ahJq</developerName>
             <invocationTarget>FSRAskAboutAccountAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -114,10 +136,10 @@ You must operate within the Italian regulatory framework governed by AIFA (Agenz
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>visit_schedule_16jHn0000010yhI</fullName>
+        <fullName>visit_schedule_16jgL000002ERIX</fullName>
         <canEscalate>false</canEscalate>
         <description>Show the rep their visit schedule for today or the week</description>
-        <developerName>visit_schedule_16jHn0000010yhI</developerName>
+        <developerName>visit_schedule_16jgL000002ERIX</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -125,19 +147,19 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
-            <developerName>instruction0_179Hn0000001GfP</developerName>
+            <developerName>instruction0_179gL000002ahJt</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GfP</masterLabel>
+            <masterLabel>instruction0_179gL000002ahJt</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>get_schedule_179Hn0000001GfP</functionName>
+            <functionName>get_schedule_179gL000002ahJt</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>get_schedule_179Hn0000001GfP</fullName>
+            <fullName>get_schedule_179gL000002ahJt</fullName>
             <description>Returns the rep&apos;s visit schedule for today or the current week with account names and addresses.</description>
-            <developerName>get_schedule_179Hn0000001GfP</developerName>
+            <developerName>get_schedule_179gL000002ahJt</developerName>
             <invocationTarget>FSRMyScheduleAction</invocationTarget>
             <invocationTargetType>apex</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
@@ -150,10 +172,10 @@ You must operate within the Italian regulatory framework governed by AIFA (Agenz
         <pluginType>Topic</pluginType>
     </localTopics>
     <localTopics>
-        <fullName>ambiguous_question_16jHn0000010yhI</fullName>
+        <fullName>ambiguous_question_16jgL000002ERIX</fullName>
         <canEscalate>false</canEscalate>
         <description>Ask for clarification when the user request is unclear</description>
-        <developerName>ambiguous_question_16jHn0000010yhI</developerName>
+        <developerName>ambiguous_question_16jgL000002ERIX</developerName>
         <genAiPluginInstructions>
             <description>You are an AI-powered field sales assistant for Field Sales Reps.
 You help reps with account intelligence, visit schedules, and daily briefings.
@@ -161,36 +183,14 @@ You are an AI assistant, not a human.
 Always base your responses on data returned by your actions.
 Never fabricate account information.
 You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
-            <developerName>instruction0_179Hn0000001GfO</developerName>
+            <developerName>instruction0_179gL000002ahJs</developerName>
             <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GfO</masterLabel>
+            <masterLabel>instruction0_179gL000002ahJs</masterLabel>
             <sortOrder>1</sortOrder>
         </genAiPluginInstructions>
         <language>en_US</language>
         <localDeveloperName>ambiguous_question</localDeveloperName>
         <masterLabel>Ambiguous Question</masterLabel>
-        <pluginType>Topic</pluginType>
-    </localTopics>
-    <localTopics>
-        <fullName>agent_router_16jHn0000010yhI</fullName>
-        <canEscalate>false</canEscalate>
-        <description>Route the user to the appropriate topic</description>
-        <developerName>agent_router_16jHn0000010yhI</developerName>
-        <genAiPluginInstructions>
-            <description>You are an AI-powered field sales assistant for Field Sales Reps.
-You help reps with account intelligence, visit schedules, and daily briefings.
-You are an AI assistant, not a human.
-Always base your responses on data returned by your actions.
-Never fabricate account information.
-You must operate within the Italian regulatory framework governed by AIFA (Agenzia Italiana del Farmaco) and the Farmindustria Code. You must comply with AIFA nota limitative (prescribing restrictions). All promotional activities require AIFA approval. Strict limits on samples, hospitality, and congress sponsorships apply under the Farmindustria Code. Respect regional ASL (Azienda Sanitaria Locale) formulary decisions.</description>
-            <developerName>instruction0_179Hn0000001GfN</developerName>
-            <language>en_US</language>
-            <masterLabel>instruction0_179Hn0000001GfN</masterLabel>
-            <sortOrder>1</sortOrder>
-        </genAiPluginInstructions>
-        <language>en_US</language>
-        <localDeveloperName>agent_router</localDeveloperName>
-        <masterLabel>Agent Router</masterLabel>
         <pluginType>Topic</pluginType>
     </localTopics>
     <masterLabel>Field Sales HCP Agent IT</masterLabel>

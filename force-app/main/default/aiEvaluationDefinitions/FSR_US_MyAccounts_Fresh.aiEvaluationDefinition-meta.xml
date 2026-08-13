@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AiEvaluationDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Fresh utterance to rule out test-side caching for my_accounts.</description>
+    <name>FSR_US_MyAccounts_Fresh</name>
+    <subjectName>Field_Sales_HCP_Agent_US</subjectName>
+    <subjectType>AGENT</subjectType>
+    <testCase>
+        <expectation>
+            <expectedValue>my_accounts</expectedValue>
+            <name>topic_assertion</name>
+        </expectation>
+        <expectation>
+            <expectedValue>[&apos;get_my_accounts&apos;]</expectedValue>
+            <name>actions_assertion</name>
+        </expectation>
+        <expectation>
+            <expectedValue>The agent lists the rep&apos;s accounts.</expectedValue>
+            <name>output_validation</name>
+        </expectation>
+        <inputs>
+            <utterance>who are all the customers assigned to me right now</utterance>
+        </inputs>
+        <number>1</number>
+    </testCase>
+</AiEvaluationDefinition>

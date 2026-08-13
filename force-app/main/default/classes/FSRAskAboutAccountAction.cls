@@ -17,6 +17,20 @@ public with sharing class FSRAskAboutAccountAction {
         return responses;
     }
 
+    /**
+     * Reusable entry point for other actions (e.g. FSRAccountBriefAction) that
+     * need the same resolved, context-rich, LLM-generated summary text without
+     * duplicating account resolution and context gathering. Returns the same
+     * formatted string this action would return to the agent.
+     */
+    public static String getFormattedSummary(String question, String accountId, String accountName) {
+        ActionRequest req = new ActionRequest();
+        req.question = question;
+        req.accountId = accountId;
+        req.accountName = accountName;
+        return buildAndInvoke(req).output;
+    }
+
     private static ActionResponse buildAndInvoke(ActionRequest req) {
         ActionResponse resp = new ActionResponse();
 

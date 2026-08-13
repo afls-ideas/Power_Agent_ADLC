@@ -34,6 +34,7 @@ start_agent agent_router:
             Always use a transition action to route immediately.
             - "daily briefing", "brief me", "morning briefing", "morning update", "catch me up", "what's on my plate" -> use go_to_daily_briefing
             - "show my schedule", "my visits today", "upcoming visits", "what's on my calendar", "my schedule for the week" -> use go_to_visit_schedule
+            - "show my accounts", "list my accounts", "my HCPs", "my customers", "who are my accounts" -> use go_to_my_accounts
             - Any question about an account, HCP, doctor, customer, messages, objectives, or sales context -> use go_to_account_summary
             - Unclear or vague request -> use go_to_ambiguous_question
             - Off-topic request unrelated to accounts or sales -> use go_to_off_topic
@@ -42,6 +43,8 @@ start_agent agent_router:
                 description: "When the user asks for a daily briefing, morning update, or to be caught up"
             go_to_visit_schedule: @utils.transition to @topic.visit_schedule
                 description: "When the user asks to see their schedule, visits, or calendar"
+            go_to_my_accounts: @utils.transition to @topic.my_accounts
+                description: "When the user asks to see, show, or list their accounts, HCPs, or customers"
             go_to_account_summary: @utils.transition to @topic.account_summary
                 description: "For any question about an account, HCP, doctor, customer, messages, objectives, or visits for a specific account"
             go_to_ambiguous_question: @utils.transition to @topic.ambiguous_question
@@ -71,6 +74,48 @@ topic account_summary:
                     description: "The resolved account name"
                     filter_from_agent: False
 
+        latest_visit:
+            description: "Return the most recently modified visit for an account or HCP."
+            target: "apex://FSRLatestVisitAction"
+            inputs:
+                question: string
+                    description: "The user's message. Used to extract an account or HCP name if no Id is provided."
+                accountId: string
+                    description: "The Account record ID (or Visit record ID) from page context. Leave blank to auto-detect."
+                accountName: string
+                    description: "The account or HCP name mentioned by the user"
+            outputs:
+                output: string
+                    description: "Formatted summary of the latest visit for the account"
+                    filter_from_agent: False
+                accountName: string
+                    description: "The resolved account name"
+                    filter_from_agent: False
+                visitId: string
+                    description: "The Id of the most recently modified visit"
+                    filter_from_agent: False
+
+        account_brief:
+            description: "Returns a rich, structured account/HCP summary CARD (headline, sections with bullets, and a next step) rendered by a custom component. The output is always renderable; always use show_command to display it to the user."
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Building the summary..."
+            target: "apex://FSRAccountBriefAction"
+            inputs:
+                question: string
+                    description: "The user's message. Pass it word-for-word."
+                accountId: string
+                    description: "The Account record ID from page context. Leave blank to auto-detect."
+                accountName: string
+                    description: "The account or HCP name mentioned by the user"
+            outputs:
+                brief: object
+                    description: "The structured account summary card. The output is always renderable; always use show_command to display it to the user."
+                    label: "Account Brief"
+                    complex_data_type_name: "c__fsrAccountBrief"
+                    is_displayable: True
+                    filter_from_agent: False
+
     reasoning:
         instructions: ->
             | The current record ID is {!@variables.record_id}
@@ -97,10 +142,44 @@ topic account_summary:
               Do NOT collapse or remove whitespace between sections.
               The output may end with a "=== VISIT LINKS ===" section — remove only that section.
               Do NOT call the action again after receiving results.
+              LATEST-VISIT REQUESTS:
+              If the user asks for the "latest visit", "last visit", "most recent visit",
+              "when was the last visit", or "latest modified visit" for an account or HCP,
+              use the {!@actions.latest_visit} action INSTEAD of ask_about_account.
+              - question: pass the user's exact message.
+              - accountName: if the user mentions a person or organisation name, pass it here.
+              - accountId: if the user says "this account" or does not name one, pass the record_id value.
+              Present the action output directly, preserving its line breaks. Do NOT call it again after results.
+              SUMMARY CARD REQUESTS:
+              If the user asks for a "summary", "overview", "brief", "briefing", "profile",
+              or "recap" of an account or HCP (e.g. "summarize Dr. Kim", "give me an overview of
+              Stanford Health Care", "brief me on this account"), use the {!@actions.account_brief}
+              action INSTEAD of ask_about_account. It returns a rich, renderable CARD.
+              - question: pass the user's exact message.
+              - accountName: if the user mentions a person or organisation name, pass it here.
+              - accountId: if the user says "this account" or does not name one, pass the record_id value.
+              The result is ALWAYS renderable. ALWAYS use show_command to display the returned card.
+              Do NOT re-list, summarize, or describe the card contents in text — the card already
+              displays them. Do NOT call the action again after results.
+              For detailed follow-up questions, message lists, or specific data pulls, keep using
+              ask_about_account (free-text), not account_brief.
 
         actions:
             ask: @actions.ask_about_account
                 description: "Get account or HCP intelligence"
+                with question = ...
+                with accountId = @variables.record_id
+                with accountName = ...
+                set @variables.account_name = @outputs.accountName
+
+            brief: @actions.account_brief
+                description: "Get a rich, structured account/HCP summary card"
+                with question = ...
+                with accountId = @variables.record_id
+                with accountName = ...
+
+            latest: @actions.latest_visit
+                description: "Get the most recently modified visit for an account or HCP"
                 with question = ...
                 with accountId = @variables.record_id
                 with accountName = ...
@@ -141,6 +220,45 @@ topic visit_schedule:
             schedule: @actions.get_schedule
                 description: "Get the rep's visit schedule"
                 with timeframe = ...
+
+            back_to_router: @utils.transition to @topic.agent_router
+                description: "Go back to ask about a different topic"
+
+topic my_accounts:
+    description: "Show the rep the list of their accounts with deep links to open each one. The output of this action is always renderable; always use show_command to display it to the user."
+
+    actions:
+        get_my_accounts:
+            description: "Returns the accounts owned by the rep (narrowed by active territory) rendered by a custom component with desktop and Life Sciences mobile deep links. The output of this action is always renderable; always use show_command to display it to the user."
+            include_in_progress_indicator: True
+            progress_indicator_message: "Loading your accounts..."
+            target: "apex://FSRMyAccountsRichAction"
+            inputs:
+                nameFilter: string
+                    description: "Optional. Only return accounts whose name contains this text. Leave blank to list all."
+            outputs:
+                result: object
+                    description: "The rep's accounts, rendered inline by a custom component that shows each account as a tappable link. The output of this action is always renderable; always use show_command to display it to the user."
+                    label: "My Accounts"
+                    complex_data_type_name: "c__fsrAccounts"
+                    is_displayable: True
+                    filter_from_agent: False
+
+    reasoning:
+        instructions: ->
+            | IMMEDIATELY call the {!@actions.get_my_accounts} action when the user asks to see, show, or list their accounts, HCPs, or customers.
+              Do NOT ask for clarification — just call the action.
+              If the user names a specific account or subset (e.g. "my accounts in cardiology", "show my Stanford accounts"),
+              pass that text as nameFilter. Otherwise leave nameFilter blank.
+              Never invent account details — only use values returned by the action.
+              The action's result is ALWAYS renderable. ALWAYS use show_command to display the returned
+              component to the user on every turn. Do NOT re-list, summarize, or describe the accounts in
+              text — the component already displays them.
+
+        actions:
+            list_accounts: @actions.get_my_accounts
+                description: "Get the rep's list of accounts with deep links"
+                with nameFilter = ...
 
             back_to_router: @utils.transition to @topic.agent_router
                 description: "Go back to ask about a different topic"
