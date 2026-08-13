@@ -114,8 +114,8 @@ enabled for this user."* Permission changes require a session reload to take eff
 
 ## Testing
 
-CLT rendering has known nondeterminism (GUS W-21683108) — the same utterance can
-occasionally return text instead of the card. Test live as the field rep (not admin),
+CLT rendering can be nondeterministic — the same utterance can occasionally return
+text instead of the card. Test live as the field rep (not admin),
 and if a card doesn't render, resend with slightly different phrasing before assuming a
 regression. `sf agent test` caches results by utterance, so always use fresh utterances.
 
